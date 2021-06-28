@@ -2,7 +2,6 @@
 <p align="center"><img src="https://raw.githubusercontent.com/KevinPatel04/KevinPatel04/master/header.png"></p>
 
 <h1 align="center">Hi <img src="https://raw.githubusercontent.com/KevinPatel04/KevinPatel04/master/Hi.gif" width="30px">, I am Aditya Deshmukh </h1>
-<h1 align="center">Hi 👋, I'm Aditya deshmukh</h1>
 <h3 align="center">A passionate frontend developer from India</h3>
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=aditya664&label=Profile%20views&color=0e75b6&style=flat" alt="aditya664" /> </p>
