@@ -1,154 +1,274 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 
-<link rel="stylesheet" href="css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/bootstrap.css"  />
---> 
+  <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<!-- use the cdn if u plan to host your site -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-<link rel="stylesheet"  href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="javascript/jquery.js"></script>
+    <script type="text/javascript" src="javascript/main.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7/firebase-auth.js"></script>
+    <script src="javascript/initialize.js"></script>
+    <script src="javascript/login.js"></script>
+    <script src="javascript/listener.js"></script>
 
-<!-- Importing Jquery --> 
-<!-- 
-<script src="js/jquery-3.0.0.min.js"></script>
-<script src="js/bootstrap.min.js" ></script>
---> 
 
-<!-- use the cdn if u plan to host your site -->
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <title>Document</title>
+  </head>
 
-<title>Blogging</title>
+  <body style="background-color: rgb(163, 163, 163); margin: 0px 50px 0px 50px;padding-top: 5px;">
 
-</head>
-<body>
+    <div class="logo">
 
-<div class="topright">
-<a href="get-started.html"><input type="button" value="Get started"></input></a>
-<input type="text" placeholder="Google search" ></input>
-</div>
-<h1>Blogging</h1>
+      <span class="logo-name">Blogging</span>
+      <button class="start-btn" id="get-started" onclick="divert()">Get started</button>
+
+
+        <span class="fake-input">
+                <input type="text" placeholder="        Google Search"/>
+                <img src="images/search.png" width="30" height="30" style="position: relative"/>
+        </span><br>
 
 
 
-<div class="header">
-<a href="index.html" >Home</a>
-<a href="#" >Nation</a>
-<a href="#" >Politic</a>
-<a href="#" >Sports</a>
-<a href="#" >Entertainment</a>
-<a href="#" >Search</a>
-<a href="#" >Contact us</a>
-</div>
-<div class="none">
 
-</div>
-<div class="post1">
-<table>
-<tr>
-<td style="padding:10px 10px;"><img src="images/img.jpg"/><br></td>
-<td><img src="images/html.png"/></td>
-<td style="padding-left:10px;">Html is hyper text markup 
-<br> language .It is used to create 
-<br> static web pages text text text 
-<br> 
- </td>
-<td style="padding:5px 100px;"><img src="images/tower.jpg"/></a></td>
-</tr>	
-<tr>
-<td style="padding-left:10px;"><h4> Should Twitter Get Rid of Follower Counts?&nbsp;&nbsp;</h4>
-<h6> The possibility feels closer than ever </h6>
-Cool Neha in All Things Creative
-</td>
-<td style="padding-left:20px; padding-bottom:20px;"><img src="images/css.png"/></td>
-<td style="padding-left:10px;"> Css is cascading style<br> stylesheet . It used to decorate <br>content visible on webpages </td>
-<td style="padding-left:50px;"> <h5>No, That’s Not How You Say It</h5> A short personal history of my favorite fast food<a href="next.html"><br>(Read more)</a></td>
-</tr>
+        <span class="count">
+          <div class="main_container" id="id_main_container">
 
-<td style="padding-left:10px;"> Some text text text  text text  <br> <b>Some text text </b></td>
-<td style="padding-left:20px;"><img src="images/flower.jpg"/></td>
-<td style="padding-left:10px;" >Images images images image  images images</td>
-<td style="padding-left:50px;"> Some text text text  text Some text text text  text text  text <br>Some text text text  text Some text text text text  texttext <br> <b>Some text text text  text</b></td>
-</tr>
-</table>
-</div>
-<div class="none">
+                        <div class="container_inner" >Total Views :
+                          <span class="num_tiles" id="display_div_pageViews">2987</span>
+                          <!-- <span class="num_tiles">0</span>
+                          <span class="num_tiles">1</span>
+                          <span class="num_tiles">0</span>
+                          <span class="num_tiles">0</span>
+                          <span class="num_tiles">0</span>  -->
+                        </div>
+                      </div>
+          <div class="main_container" id="id_main_container">
 
-</div>
-<div class="post2">
-
-<table>
-<tr>
-<td><h1>Welcome to Blogging,<br> where words matter.</h1>
-<span style="padding-left:50px;">Some text text text text text  text text text text text
-<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Some text text text text text text text text text text text text
-<br><br><br><br><br></span></td>
-<td style="padding-left:250px;"><br><br><br><img src="images/img.jpg"></img></td>
-</tr>
-</table>
-</div>
-<div class="none">
-
-</div>
-<div class="post1">
-<table>
-<tr>
-<td style="padding:10px 10px;"><img src="images/img.jpg"/><br></td>
-<td><img src="images/html.png"/></td>
-<td style="padding-left:10px;">Html is hyper text markup 
-<br> language .It is used to create 
- <br>text  text text  text text  text  text
- <br> text text text
- </td>
-<td style="padding:10px 100px;"><a href="#"><img src="images/tower.jpg"/></a></td>
-</tr>	
-<tr>
-<td style="padding-left:10px;"><h4>Should Twitter Get Rid of Follower Counts?&nbsp;&nbsp;</h4>
-<h4> Some text text </h4>
-Some text text text  text
-</td>
-<td style="padding-left:20px; padding-bottom:20px;"><img src="images/css.png"/></td>
-<td style="padding-left:10px;"> Css is cascading style<br> stylesheet . It used to decorate <br>content visible on webpages </td>
-<td style="padding-left:50px;"> <h5>Some text text text  text  Some text text text  text</h5>t</td>
-</tr>
-<tr>
-<td style="padding-left:10px;"> Some text text text  text text  <br> <b>Some text text </b></td>
-<td style="padding-left:20px;"><img src="images/flower.jpg"/></td>
-<td style="padding-left:10px;" >Images images images imagesmages images</td>
-<td style="padding-left:50px;"> Some text text text  text Some text text text  text text  text <br>Some text text text  text Some text text text text  texttext <br> <b>Some text text text  text</b></td>
-</tr>
-</table>
-</div>
-
-<div class="none">
-
-</div>
+                        <div class="container_inner">Total Users :
+                          <span class="num_tiles"  id="display_div_usersCount">176</span>
+                          <!-- <span class="num_tiles">0</span>
+                          <span class="num_tiles">1</span>
+                          <span class="num_tiles">0</span>
+                          <span class="num_tiles">0</span>
+                          <span class="num_tiles">0&nbsp</span>  -->
+                        </div>
+                       </div>
+          </span>
+    </div><br><br><br>
 
 
-<footer>
-<p style="align:center;"><span id="one"> About us</span> &nbsp;&nbsp; 
-<span id="two">Privacy policy</span> &nbsp;&nbsp; 
-<span id="three">Newsletter</span> &nbsp;&nbsp; 
-<span id="four">Sitemap</span></p>
-<p id="follow">Follow us on</p>
-<a href="#" class="fa fa-facebook"></a>
-<a href="#" class="fa fa-twitter"></a>
-<a href="#" class="fa fa-google"></a>
-<a href="#" class="fa fa-rss"></a>
-<a href="#" class="fa fa-youtube"></a>
+
+    <header class="nav">
+      <div class="nav-box">
+        <span class=""><a href="#">Home</a></span>&nbsp&nbsp
+        <span class=""><a href="#">Nation</a></span>&nbsp&nbsp
+        <span class=""><a href="#">Sports</a></span>&nbsp&nbsp
+        <span class=""><a href="#">Politics</a></span>&nbsp&nbsp
+        <span class=""><a href="#">Entertainment</a></span>&nbsp&nbsp
+        <span class=""><a href="#">Search</a></span>&nbsp&nbsp
+        <span class=""><a href="#">Contact Us</a></span>
+      </div>
+    </header>
+    <hr>
 
 
- <p>Copyright &copy; 2020 All Rights Reserved </p>
+
+    <table class="section1">
+      <tr>
+        <td style="text-align: left; padding: 5px; padding-top: 20px;">
+          <span class="featured1" style="text-align: left; padding: 0px;">
+                                <img src="images/featured1.png" alt="" width=400 height=150></img>
+                                <p><h2>Should Twitter Get Rid of Follower Counts?</h2>
+                                        <h3>The possibility feels closer than ever</h3>
+                                        Cool Neha in All Things Creative<br>
+                                        <h4>Jan 9  ·  5 min read</h4>
+
+                                    </p>
+                            </span>
+
+        </td>
+        <td style="padding-top: 14px;">
+          <span class="top3">
+
+                                <span><img src="images/top3A.png" alt="" style="float: left;border: 1px solid black;margin: 22px 10px 10px 0px;" width="100" height="100"></img>
+                                   <h3>Html, a standardized system for tagging text files to achieve font, colour, graphic, and hyperlink effects on WWW pages.</h3>
+
+                                </span><br>
+
+
+          <span style="float: left;"><p style=""></p><img src="images/top3B.png" alt="" style="float: left;border: 1px solid black;margin: 0px 10px 10px 0px;" width="100" height="100"></img>
+                                <h3>CSS describes how HTML elements are to be displayed on screen, paper, or in other media & control the layout of multiple web pages.</h3>
+                                </span><br>
+
+
+          <span style="float: left;"><p style=""></p><img src="images/top3C.png" alt="" style="float: left;border: 1px solid black;margin: 5px 10px 10px 0px;" width="100" height="100"></img>
+                                <h3>Teach yourself the foundations of designing using these links made for learning.--freecodecamp & theodinproject</h3>
+                                </span>
+
+          </span>
+
+        </td>
+        <td style="text-align: left; padding: 5px;">
+          <span class="featured2">
+                                <span class="newpage" onclick="article()"><img src="images/featured3.png " alt=" " width=400 height=150></img>
+                                    <p><h2>No, That’s Not How You Say It</h2>
+                                        <h3>A short personal history of my favorite fast food<br>(<a href="newpage.html">Read more...</a>)</h3>
+                                        VIP Singh <br>
+                                        <h4>Jan 29 · 8 min read</h4></p>
+                                </span>
+                          </span>
+
+                </td>
+            </tr>
+        </table><hr>
+
+
+
+
+        <div class="section2 ">
+            <span class="site-media ">
+                <img src="images/media22.png " alt=" "></image>
+            </span>
+        </div><hr>
+
+
+
+        <table class="section3 ">
+                <tr>
+                    <td style="text-align: left; padding: 5px; padding-top: 20px; ">
+                            <span class="featured1 " style="text-align: left; padding: 0px; ">
+                                    <img src="images/bottom3C.png " alt=" " width=400 height=150></img>
+                                    <p><h2>A few good reasons why you should learn to code</h2>
+                                            <h3>You might be wondering if learning to code is something you should...</h3>
+                                            Rocky Jagtiani <br>
+                                            <h4>Jan 9  ·  5 min read</h4>
+
+                                        </p>
+                                </span>
+
+                    </td>
+                    <td style="padding-top: 14px; ">
+                            <span class="top3 "  >
+
+                                    <span><img src="images/chinese.png " alt=" " style="float: left;border: 1px solid black;margin: 22px 10px 10px 0px; " width="100 " height="100 "></img>
+                                       <h3>Only buy something that you’d be perfectly happy to hold if the market shut down for 10 years.</h3>
+
+                                    </span><br>
+
+
+                                    <span style="float: left; "><p style=" "></p><img src="images/summer.png " alt=" " style="float: left;border: 1px solid black;margin: 0px 10px 10px 0px; " width="100 " height="100 "></img>
+                                    <h3>When I figured out how to work my grill, it was quite a moment. I discovered that summer is a completely different experience when you know how to grill.</h3>
+                                    </span><br>
+
+
+                                    <span style="float: left; "><p style=" "></p><img src="images/winter.png " alt=" " style="float: left;border: 1px solid black;margin: 5px 10px 10px 0px; " width="100 " height="100 "></img>
+                                    <h3> Chains of habit are too light to be felt until they are too heavy to be broken.</h3>
+                                    </span>
+
+                              </span>
+
+                    </td>
+                    <td style="text-align: left; padding: 5px; ">
+                            <span class="featured2 " ">
+          <span><img src="images/bottom3B.png" alt="" width=400 height=150></img>
+                                        <p><h2>Deep space radio waves baffle astronomers; aliens not ruled out</h2>
+                                            <h3> Every time we see something we’ve never seen before that is an opportu..</h3>
+                                            Enzyme Snehar<br>
+                                            <h4>Jan 29 · 8 min read</h4></p>
+                                    </span>
+          </span>
+
+        </td>
+      </tr>
+    </table>
+    <hr>
+
+
+
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <br>
+          <div class="aboutus">
+            <a href="aboutus.html">About us</a><a>Privacy policy</a><a>Newsletter</a><a>Sitemap</a>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text"><b>FOLLOW US ON</b></h5>
+            <a class="fa fa-facebook"  href="#"></a>
+            <a class="fa fa-twitter"></a>
+            <a class="fa fa-google"  href="#"></a>
+            <a class="fa fa-rss"></a>
+            <a class="fa fa-youtube"  href="#"></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <h5>
+            <p>Copyright © 2019 <a>Suven Consultants and technology pvt ltd</a>All rights reserved</b>
+            </p>
+          </h5><br>
+        </div>
+      </div>
     </footer>
+    <script>
+        function divert() {
+          window.location.href = "getstarted.html"
+        }
+        function article(){
+          window.location.href = "newpage.html"
+        }
+      </script>
+<script>
 
-</body>
+
+    $(document).ready(function(){
+
+  $.ajax({
+    type: 'post',
+    url: 'count.php',
+    data: {
+      updateTotalViews: "pageViews"
+    },
+
+    success: function(response) {
+      $('#display_div_pageViews').html(response);
+
+    }
+  });
+
+
+
+
+  $.ajax({
+    type: 'post',
+    url: 'count.php',
+    data: {
+      readTotalUsers: "usersCount"
+    },
+
+    success: function(response) {
+      $('#display_div_usersCount').html(response);
+
+    }
+  });
+});
+
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+          $("body").on("contextmenu",function(e){
+              return false;
+          });
+      });
+    </script>
+  </body>
+
 </html>
